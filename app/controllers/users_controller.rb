@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_users, only: [:show,:edit,:update]
+  # before_action :set_users, only: [:show,:edit,:update]
   def index
-    @users = User.all
+    @users = User.all.page(params[:page])
   end
 
   def show
@@ -15,10 +15,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = 'ユーザー登録が完了しました'
-      redirect_to root_url
+      flash[:notice] = 'ユーザー登録が完了しました'
+      redirect_to @user
     else
-      flash.now[:danger] = 'ユーザー登録に失敗しました'
+      flash[:notice] = 'ユーザー登録に失敗しました'
       render :new
     end
   end
@@ -32,12 +32,14 @@ class UsersController < ApplicationController
   def destroy
   end
 
-  private
+
   def set_users
     @user = User.find(params[:id])
   end
 
-  def useer_params
-    params.require(:user).permit(:name,:email,:password,:password_confirmation)
+private
+
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 end

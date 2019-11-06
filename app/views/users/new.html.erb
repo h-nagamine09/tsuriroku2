@@ -1,22 +1,22 @@
 <div class="text-center">
  <h1>新規ユーザー登録</h1>
 </div>
-   <div class="row">
+   <div>
      <div>
-       <%=fomr_for(@user) do |f| %>
+       <%=form_for(@user) do |f| %>
            <div>
              <%=f.label :name, '名前'%>
-             <%=f. text_field :name%>
+             <%=f.text_field :name %>
            </div>
-           <div class="">
+           <div>
              <%= f.label :email,'メールアドレス' %>
              <%= f.email_field :email %>
            </div>
-           <div class="">
+           <div>
              <%= f.label :password, 'パスワード' %>
              <%= f.password_field :password %>
            </div>
-           <div class="">
+           <div>
              <%= f.label :password_confirmation, 'パスワード（再入力）' %>
              <%= f.password_field :password_confirmation %>
            </div>

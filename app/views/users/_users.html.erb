@@ -1,0 +1,12 @@
+<% if users.any? %>
+  <ul>
+    <% users.each do |user| %>
+      <div>
+        <%= user.name %>
+      </div>
+    <% end %>
+    <li>
+    </li>
+  </ul>
+  <%= paginate users %>
+<% end %>
