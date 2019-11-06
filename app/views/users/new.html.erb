@@ -4,20 +4,21 @@
    <div>
      <div>
        <%=form_for(@user) do |f| %>
+       <%= render 'layouts/error_messages', model: f.object %>
            <div>
-             <%=f.label :name, '名前'%>
+             <%=f.label :name, :name %>
              <%=f.text_field :name %>
            </div>
            <div>
-             <%= f.label :email,'メールアドレス' %>
+             <%= f.label :email,:email %>
              <%= f.email_field :email %>
            </div>
            <div>
-             <%= f.label :password, 'パスワード' %>
+             <%= f.label :password, :password %>
              <%= f.password_field :password %>
            </div>
            <div>
-             <%= f.label :password_confirmation, 'パスワード（再入力）' %>
+             <%= f.label :password_confirmation, :password_confirmation %>
              <%= f.password_field :password_confirmation %>
            </div>
 
