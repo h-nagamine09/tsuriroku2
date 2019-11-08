@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>App</title>
+    <title>ツリロク</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,9 +10,8 @@
   </head>
   <body>
     <div class="container">
-      <%=render 'layouts/flash_messages'%>
+      <%= render 'layouts/flash_messages' %>
         <%= yield %>
-        <%= javascript_pack_tag 'hello_vue' %>
     </div>
   </body>
 </html>
