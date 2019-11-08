@@ -1,11 +1,4 @@
 Rails.application.routes.draw do
-  get 'records/index'
-  get 'records/show'
-  get 'records/new'
-  get 'records/create'
-  get 'records/edit'
-  get 'records/update'
-  get 'records/destroy'
   root to: 'toppages#index'
 
   get 'login', to: 'sessions#new'
@@ -15,5 +8,6 @@ Rails.application.routes.draw do
 
 
 resources :users,only: [:index,:show,:new,:create]
+resources :records
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

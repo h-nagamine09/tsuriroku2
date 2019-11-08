@@ -1,2 +1,47 @@
-<h1>Records#show</h1>
-<p>Find me in app/views/records/show.html.erb</p>
+<h1><%= @record.date %></h1>
+<div class="row">
+  <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-lg-offset-2 col-lg-8">
+    <div class="text-center">
+       <div class="record-image">
+         <!--写真が追加されなかった場合はNo-image.pngを表示する-->
+           <% if @record.image? %>
+             <%= image_tag @record.image.thumb300.url %>
+           <%else %>
+             <%= image_tag("/images/no-image.png") %>
+             <p>No Image</p>
+           <% end %>
+       </div>
+        <table class="table">
+          <tr>
+            <th class="text-left">サイズ</th>
+            <td class="text-left"><%=@record.size %></td>
+          </tr>
+          <tr>
+            <th class="text-left">ウェイト</th>
+            <td class="text-left"><%=@record.weight%></td>
+          </tr>
+          <tr>
+            <th class="text-left">場所</th>
+            <td class="text-left"><%=@record.place %></td>
+          </tr>
+          <tr>
+            <th class="text-left">天気</th>
+            <td class="text-left"><%=@record.wether %></td>
+          </tr>
+          <tr>
+            <th class="text-left">ヒットルアー</th>
+            <td class="text-left"><%=@record.lure %></td>
+          </tr>
+          <tr>
+            <th class="text-left">メモ</th>
+            <td class="text-left"><%=@record.content%></td>
+          </tr>
+        </table>
+        <div class="text-left">
+           <% if current_user == @record.user %> <!--ログインしているユーザーのみ編集ボタンを表示させる-->
+             <%= link_to '投稿を編集', edit_record_path(@record),class: 'btn btn-primary' %>
+           <% end %>
+        </div>
+     </div>
+   </div>
+</div>
