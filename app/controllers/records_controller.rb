@@ -1,6 +1,6 @@
 class RecordsController < ApplicationController
   before_action :require_user_logged_in
-  before_action set_records, only: [:show,:edit,:update]
+  before_action :set_records, only: [:show,:edit,:update]
 
   def index
     if logged in?
@@ -12,7 +12,7 @@ class RecordsController < ApplicationController
   end
 
   def new
-    @record = curent_user.records.build
+    @record = current_user.records.build
   end
 
   def create

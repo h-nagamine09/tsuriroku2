@@ -8,3 +8,11 @@ ja:
         email: メールアドレス
         password: パスワード
         password_confirmation: パスワード(再入力)
+     record:
+        name: 魚種
+        size: サイズ
+        weight: ウェイト
+        lure: ヒットルアー
+        weather: 天気
+        place: 釣れた場所
+        image: Photo

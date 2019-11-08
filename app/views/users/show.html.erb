@@ -2,3 +2,6 @@
   <div>
     <%= @user.name %>
   </div>
+  <% if current_user == @user %>
+   <%= link_to'釣果を記録', new_record_path, class: 'btn btn-primary'%>
+  <% end %>
