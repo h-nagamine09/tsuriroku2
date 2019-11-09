@@ -1,0 +1,38 @@
+<!--タイムラインの投稿-->
+<ul class="media-list">
+  <% records.each do |record| %>
+  <li class="media">
+    <!-- <div class="media-left">
+      <img class="media-object img-rounded" src="<% if record.image? %><%=record.image.thumb80.url %><%else %><%= ("/images/no-image-icon.png") %><% end %>"alt="recordicon">
+    </div> -->
+    <div class="media-body">
+      <div>
+        <%= link_to record.user.name, user_path(record.user) %> <span class="text-muted">posted at <%=record.posted_at %></span><!--ユーザープロフィールへのリンク-->
+      </div>
+      <table class="table">
+      <thead>
+      <tr>
+        <th class="text-left">魚種</th>
+        <th class="text-left">サイズ</th>
+        <th class="text-left">ウェイト</th>
+      </tr>
+    </thead>
+     <tbody>
+        <tr>
+          <td class="text-left"><%= link_to record.name,record %></td>
+          <td class="text-left"><%=record.size %></td>
+          <td class="text-left"><%=record.weight %></td>
+        </tr>
+     </tbody>
+    </table>
+      <div>
+          <% if current_user == record.user %>
+            <%= link_to "釣果を削除する",record, method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger btn-xs" %>
+          <% end %>
+
+      </div>
+    </div>
+  </li>
+  <% end %>
+
+</ul>

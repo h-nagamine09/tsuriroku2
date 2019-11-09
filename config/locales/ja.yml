@@ -2,17 +2,20 @@ ja:
   activerecord:
     models:
       user: ユーザー情報
+      record: 釣果記録
     attributes:
       user:
         name: ユーザー名
         email: メールアドレス
         password: パスワード
         password_confirmation: パスワード(再入力)
-     record:
+      record:
         name: 魚種
         size: サイズ
         weight: ウェイト
         lure: ヒットルアー
         weather: 天気
         place: 釣れた場所
+        content: メモ
+        posted_at: 釣れた日
         image: Photo

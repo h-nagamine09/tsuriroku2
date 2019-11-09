@@ -1,6 +1,6 @@
  <% if logged_in? %>
  <h1>タイムライン</h1>
-        <%=current_user.name%>
+        <%=render 'records/records',records: @records %>
         <div class="">
           <%= link_to 'ログアウト',logout_path,method: :delete %>
         </div>
