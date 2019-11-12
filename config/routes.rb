@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'relationships/create'
-  get 'relationships/index'
   root to: 'toppages#index'
 
   get 'login', to: 'sessions#new'
@@ -9,7 +7,13 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new'
 
 
-resources :users,only: [:index,:show,:new,:create]
+resources :users do
+      member do
+        get :followings
+        get :followers
+      end
+end
 resources :records
+resources :relationships, only: [:create,:destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
